@@ -1,37 +1,46 @@
+
 #include <bits/stdc++.h> 
 using namespace std; 
 
 int maxSubStr(string str, int n) 
-{  
-	int count0 = 0, count1 = 0; 
+{ 
 
-	int cnt = 0; 
-	for (int i = 0; i < n; i++) { 
-		if (str[i] == '0') { 
-			count0++; 
-		} 
-		else { 
-			count1++; 
-		} 
-		if (count0 == count1) { 
-			cnt++; 
-		} 
-	} 
+    int count0 = 0, count1 = 0; 
+    int cnt = 0; 
 
-	if (count0 != count1) { 
-		return -1; 
-	} 
+    for (int i = 0; i < n; i++) 
+    { 
+        if (str[i] == '0') 
+        { 
+            count0++; 
+        } 
+        else 
+        { 
+            count1++; 
+        } 
+        if (count0 == count1) 
+        { 
+            cnt++;
+        } 
+    } 
 
-	return cnt; 
+
+    if (count0 != count1) 
+    { 
+        return -1; 
+    } 
+    
+    return cnt; 
 } 
 
 
 int main() 
 { 
-	string str = "010011"; 
-	int n = str.length(); 
+    string str;
+    getline(cin,str); 
+    int n = str.length(); 
 
-	cout << maxSubStr(str, n); 
+    cout<< maxSubStr(str, n); 
 
-	return 0; 
+    return 0; 
 } 
